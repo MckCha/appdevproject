@@ -1,6 +1,7 @@
 <?php session_start();
 $_SESSION['verified'] = false;
 require_once("db.php");
+
 $db = get_connnection();
 //pass: deezonez17
 //hashed: $2y$10$7TqZdbfjyzq.ZhM1IVSaqOD8kXabtlmZzCzj2AMyx5upouFln1goO
@@ -36,7 +37,19 @@ $db = get_connnection();
     </div>
     <!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script> -->
     <?php 
-    if (isset($_POST["Login"])) {
+    if (isset($_POST["Login"]) && !empty($_POST["username"]) && !empty($_POST["pass"])) {
+      $username = htmlspecialchars($_POST["username"]);
+      $pass = htmlspecialchars($_POST["pass"]);
+
+      $stmt = $db->prepare("SELECT * FROM user WHERE username = ? AND password = ?");
+      $stmt->bind_param("ss", $username,$pass);
+      $stmt->execute();
+      $result = $stmt->get_result();
+      if ($result->num_rows == 1) {
+    
+        $_SESSION['logged_in'] = true;
+      }
+      $result->free();
       header("Location: home.php");
       exit();
 
