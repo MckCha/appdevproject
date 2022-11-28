@@ -1,7 +1,7 @@
 <?php session_start();
-//$_SESSION['verified'] = false;
-//require_once("db.php");
-//$db = get_connnection();
+$_SESSION['verified'] = false;
+require_once("db.php");
+$db = get_connnection();
 //pass: deezonez17
 //hashed: $2y$10$7TqZdbfjyzq.ZhM1IVSaqOD8kXabtlmZzCzj2AMyx5upouFln1goO
 ?>
