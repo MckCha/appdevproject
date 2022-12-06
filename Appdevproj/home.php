@@ -39,8 +39,7 @@ $db = get_connection();
   </head>
   <body>
     <div class="bg"></div>
-        <div class="vl"></div>
-        <div class="v2"></div>
+        
         <div class="container">
                 <div class="row row-cols-1">
                     <div class="col">
@@ -51,10 +50,10 @@ $db = get_connection();
         <div class="fixed-top">
             <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
               <div class="username">
-                Welcome!
+                 Welcome!
                 <br>
 
-              </div> <br><br>
+              </div>
               <button type="button" class="btn btn-primary btn-x1">Creator Studio</button><br>
               <button type="button" class="btn btn-primary btn-x1">Your Creators</button><br>
               <button type="button" class="btn btn-primary btn-x1">Notifications</button><br>
