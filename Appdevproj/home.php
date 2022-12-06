@@ -4,8 +4,29 @@
 //$db = get_connnection();
 //pass: deezonez17
 //hashed: $2y$10$7TqZdbfjyzq.ZhM1IVSaqOD8kXabtlmZzCzj2AMyx5upouFln1goO
-?>
 
+
+
+function get_connection() {
+  static $connection;
+  
+  if (!isset($connection)) {
+      // Connect to the database
+      $connection = mysqli_connect('localhost', 'learnapp', 
+          'job19Fmuslk','learnapp') 
+          or die(mysqli_connect_error());
+  }
+  if ($connection === false) {
+      echo "Unable to connect to database<br/>";
+      echo mysqli_connect_error();
+  }
+
+  return $connection;
+}
+
+$db = get_connection();
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -29,11 +50,21 @@
         </div>
         <div class="fixed-top">
             <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
-                <button type="button" class="btn btn-primary btn-x1">"Username"</button><br>
-                <button type="button" class="btn btn-primary btn-x1">Creator Studio</button><br>
-                <button type="button" class="btn btn-primary btn-x1">Your Creators</button><br>
-                <button type="button" class="btn btn-primary btn-x1">Notifications</button><br>
-                <button type="button" class="btn btn-primary btn-x1">Search</button><br>
+              <div class="username">
+                Welcome!
+                <br>
+
+              </div> <br><br>
+              <button type="button" class="btn btn-primary btn-x1">Creator Studio</button><br>
+              <button type="button" class="btn btn-primary btn-x1">Your Creators</button><br>
+              <button type="button" class="btn btn-primary btn-x1">Notifications</button><br>
+              <button type="button" class="btn btn-primary btn-x1">Search</button><br>
+              <h3>
+                <?php if($_SESSION['logged_in'] == true) : ?>
+                  <a class="btn btn-primary" href="logout.php" role="button">Logout</a>
+                <?php else : ?>
+                <?php endif; ?>
+              </h3>
             </div>
             <div class="contact">
                 E-Mail:

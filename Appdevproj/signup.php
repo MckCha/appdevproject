@@ -4,8 +4,48 @@
 //$db = get_connnection();
 //pass: deezonez17
 //hashed: $2y$10$7TqZdbfjyzq.ZhM1IVSaqOD8kXabtlmZzCzj2AMyx5upouFln1goO
-?>
 
+function get_connection() {
+  static $connection;
+  
+  if (!isset($connection)) {
+      $connection = mysqli_connect('localhost', 'learnapp', 
+          'job19Fmuslk','learnapp') 
+          or die(mysqli_connect_error());
+  }
+  if ($connection === false) {
+      echo "Unable to connect to database<br/>";
+      echo mysqli_connect_error();
+  }
+else if ($connection === true) {
+  echo "Server connected";
+}
+
+  return $connection;
+}
+
+$db = get_connection();
+
+if (isset($_POST) && !empty($_POST)) {
+	if (isset($_POST['username']) && !empty($_POST['username']) &&
+		isset($_POST['password']) && !empty($_POST['password'])
+	) {
+		  $result = $db->prepare("Call RegisterUser(?,?)");
+		  $username = htmlspecialchars($_POST['username']);
+		  $password = htmlspecialchars($_POST['password']);
+		  $result->bind_param("ss", $username, $password);
+		  $result->execute();
+        
+        if ($result !== false) {
+			    $_SESSION['logged_in'] = true;
+			    header("Location: home.php");
+		    }
+	}
+	// Added
+	$db->close();
+}
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -24,13 +64,12 @@
           Username: <input type="username" name="username" />
           <br>
           <br>
-          Password: <input type="password" name="pass" />
+          Password: <input type="password" name="password" />
           <br>
           <br>
-          <input type="submit" class ="btn btn-primary" name="Login" value="Login" />
+          <input type="submit" class ="btn btn-primary" name="Signup" value="Signup" />
       </form>
       <br>
-      <a href="https://www.cs.csub.edu/~mcha/3390/signup.php" class="btn btn-primary" role="button" aria-pressed="true">Sign Up</a>
       <br><br><br>
     </div>
   </body>

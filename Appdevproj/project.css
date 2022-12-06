@@ -21,7 +21,6 @@ body {
 .homecon {
     text-align: center;
     justify-content: center;
-    background-color: whitesmoke;
 	padding: 20px;
     margin: auto;
     margin-top: 20px;
@@ -84,4 +83,13 @@ html {
     margin-top: 100px;
     float: right;
     
+}
+
+.username {
+    font-size: 40px;
+}
+
+h3 {
+    color: black;
+    text-align: right;
 }
