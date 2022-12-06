@@ -66,7 +66,7 @@ if (isset($_POST) && !empty($_POST)) {
           <input type="submit" class="btn btn-primary" name="Login" value="Login" />
       </form>
       <br>
-      <a href="https://artemis.cs.csub.edu/~mcha/appdevprojcopy/signup.php" name="signup" class="btn btn-primary" role="button" aria-pressed="true">Sign Up</a>
+      <a href="signup.php" name="signup" class="btn btn-primary" role="button" aria-pressed="true">Sign Up</a>
       <br><br><br>
     </div>
     <!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script> -->
