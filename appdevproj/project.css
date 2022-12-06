@@ -1,15 +1,11 @@
 
 form {
     font-size: 20px;
-    color: FFCC00;
     text-align: center;
-    background-color: 1030AD;
 }
 body {
     font-size: 20px;
     font-variant: small-caps;
-    color: FFCC00;
-    background-color: 1030AD;
     text-align: center;
     height: 100%;
     background-image: url("background2.jpg");
@@ -91,5 +87,5 @@ html {
 
 h3 {
     color: black;
-    text-align: right;
+    text-align: center;
 }

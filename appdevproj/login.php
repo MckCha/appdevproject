@@ -25,6 +25,20 @@ function get_connection() {
 $db = get_connection();
 ?>
 
+<?php if (!isset($_SESSION['logged_in']) && $_SESSION['logged_in'] != true): ?>
+	<h3> You are not logged in!</h3>
+	<br>
+    <?php else: ?>
+	<h3> You are logged in! </h3>
+    <?php
+        if ($_SESSION['logged_in'] == true) {
+			  header("Location: home.php");
+	    }
+      
+    ?>
+
+    <?php endif; ?>
+
 <?php
 if (isset($_POST) && !empty($_POST)) {
 	$user = htmlspecialchars($_POST['username']);
@@ -39,7 +53,7 @@ if (isset($_POST) && !empty($_POST)) {
 		$_SESSION['logged_in'] = true;
 	}
 	$result->free();
-    header("Location: home.php");
+  header("Location: home.php");
 }
 ?>
 
@@ -65,7 +79,6 @@ if (isset($_POST) && !empty($_POST)) {
           <br>
           <input type="submit" class="btn btn-primary" name="Login" value="Login" />
       </form>
-      <br>
       <a href="signup.php" name="signup" class="btn btn-primary" role="button" aria-pressed="true">Sign Up</a>
       <br><br><br>
     </div>
