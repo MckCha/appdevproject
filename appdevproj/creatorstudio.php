@@ -23,7 +23,7 @@
         <p><?=$_GET['error']?></p>
     <?php } ?>
     <form action="upload.php" method="post" enctype="multipart/form-data">
-        <input type="file" name="my_video">
+        <input type="text" name="my_video" value="Insert URL">
         <input type="submit" name="submit" value="Upload">
     </form>
 </body>
