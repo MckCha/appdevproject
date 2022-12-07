@@ -54,7 +54,7 @@ $db = get_connection();
                 <br>
 
               </div>
-              <a class="btn btn-primary" href="index.php" role="button">Creator Studio</a>
+              <a class="btn btn-primary" href="creatorstudio.php" role="button">Creator Studio</a>
               <button type="button" class="btn btn-primary btn-x1">Your Creators</button><br>
               <button type="button" class="btn btn-primary btn-x1">Notifications</button><br>
               <button type="button" class="btn btn-primary btn-x1">Search</button><br>
