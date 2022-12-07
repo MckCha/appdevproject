@@ -89,3 +89,8 @@ h3 {
     color: black;
     text-align: center;
 }
+
+.video {
+    text-align: center;
+    justify-content: center;
+}
